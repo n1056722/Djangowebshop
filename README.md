@@ -1,1 +1,3 @@
-# Djangowebshop
+djangowebshop
+
+django練習

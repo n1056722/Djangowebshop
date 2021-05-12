@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'myshop/main/css/main.css' %}">
+{% endblock %}
+
+{% block header %}
+    <header></header>
+{% endblock %}
+{% block footer %}
+    <footer>
+        <a href="{% url 'myshop:home' %}" class="home">
+            <dl>
+                <dt>
+                <span>
+                </span>
+                </dt>
+                <dd>首頁</dd>
+            </dl>
+        </a>
+        <a href="{% url 'myshop:market' %}" class="market">
+            <dl>
+                <dt>
+                <span>
+                </span>
+                </dt>
+                <dd>商城</dd>
+            </dl>
+        </a> <a href="{% url 'myshop:cart' %}" class="cart">
+        <dl>
+            <dt>
+                <span>
+                </span>
+            </dt>
+            <dd>購物車</dd>
+        </dl>
+    </a>
+        <a href="{% url 'myshop:mine' %}" class="mine_icon">
+            <dl>
+                <dt>
+                <span>
+                </span>
+                </dt>
+                <dd>會員</dd>
+            </dl>
+        </a>
+    </footer>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'base_order.html' %}
+{% load static %}
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'myshop/order/css/order_detail.css' %}">
+{% endblock %}
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'myshop/order/js/order_detail.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <div id="order_detail" class="container">
+        <h6>訂單編號:{{ order.id }}</h6>
+        <ul>
+            {% for ordergoods in order.ordergoods_set.all %}
+                <li class="menuList">
+                    <a href="#">
+                        <img src="{{ ordergoods.o_goods.product_img }}" alt="{{ ordergoods.o_goods.product_longname }}">
+                        <p>{{ ordergoods.o_goods.product_longname }}</p>
+                        <p class="presentPrice">{{ ordergoods.o_goods.price }}</p>
+                    </a>
+                    <section>
+                        <span>{{ ordergoods.o_goods_num }}</span>
+                    </section>
+                </li>
+            {% endfor %}
+        </ul>
+        <h6 class="total_price">總價:<span id="total_price">{{ order.o_price }}</span></h6>
+    <button orderid="{{ order.id }}" id="paypal" class="btn btn-success btn-block">支付</button>
+    </div>
+{% endblock %}
